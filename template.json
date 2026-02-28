@@ -1,0 +1,16 @@
+{
+    "name": null,
+    "input_variables": [
+        "paper_input",
+        "style_input"
+    ],
+    "optional_variables": [],
+    "output_parser": null,
+    "partial_variables": {},
+    "metadata": null,
+    "tags": null,
+    "template": "You are an expert research paper explainer. Summarize the research paper \"{paper_input}\" in a {style_input} style.\n\nYour summary should include:\n1. **Core Idea**: What problem does this paper solve?\n2. **Key Contributions**: What are the main innovations?\n3. **How It Works**: Explain the methodology using the requested style:\n   - If Math-Oriented: include relevant equations and mathematical intuition.\n   - If Code-Based: include short Python pseudocode or snippets to illustrate concepts.\n   - If Beginner Friendly: use simple real-world analogies and avoid heavy jargon.\n4. **Impact**: Why does this paper matter in the field of AI/ML?\n\nKeep the summary concise but insightful (around 300-400 words).\n",
+    "template_format": "f-string",
+    "validate_template": true,
+    "_type": "prompt"
+}
