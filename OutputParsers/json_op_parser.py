@@ -10,7 +10,6 @@ parser = JsonOutputParser()
 
 template = PromptTemplate(
     template="Write a name , age and the city of any fictional person \n {format_instruction}",
-    input_variables=[],
     partial_variables={'format_instruction' : parser.get_format_instructions()}
 )
 

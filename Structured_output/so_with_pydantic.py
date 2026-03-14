@@ -1,11 +1,13 @@
 from typing import TypedDict,Annotated,Literal
 from langchain_ollama import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel,Field
 from dotenv import load_dotenv
 load_dotenv()
 
 model = ChatOllama(model="gemma2:2b",temperature=0.3)
+
 
 # class Review(TypedDict):
 #     summary : Annotated[str,"A concise summary of the review"]
@@ -26,6 +28,7 @@ prompt = PromptTemplate(
 )
 
 structured_model = model.with_structured_output(Review)
+
 chain = prompt | structured_model
 
 result = chain.invoke({"review":"""I recently purchased the Yamaha YFL-222 Student Flute after weeks of research, and my experience has been a rollercoaster of emotions. 
@@ -39,4 +42,4 @@ The intonation is mostly accurate across all registers, though the upper octave 
 Overall, despite the hiccups, I would cautiously recommend this flute to beginner-to-intermediate players who are serious about learning. It's not perfect, but with proper maintenance and maybe a professional setup from a local music shop, it punches well above its weight class. Just be prepared for a bit of a learning curve and potentially some minor quality control issues out of the box."""})
 
 output = (dict(result))
-print(output['sentiment'])
+print(output)
